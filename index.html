@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+ 
 <header class="cabecalho" id="cabecalho">
   <div class="marca">
     <img src="assets/logo-round.png" alt="Logotipo Tempo de Avançar">
@@ -34,7 +34,7 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
   </div>
 </header>
-
+ 
 <!-- MENU MOBILE -->
 <nav id="menuMobile" style="display:none; position:fixed; inset:0; z-index:99; background:rgba(10,12,16,.98); padding:120px 32px 32px;">
   <ul style="list-style:none; padding:0; display:grid; gap:28px; font-family:var(--fonte-display); font-size:2rem;">
@@ -46,26 +46,30 @@
     <li><a href="admin/login.html" style="color:var(--azul-claro);">Área do professor</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
-<section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/logo-original-upscaled.png">
-    <source src="assets/hero-bg.webm" type="video/webm">
-    <source src="assets/hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="hero-camada"></div>
-  <div class="container hero-conteudo">
-    <span class="olho">PROJETO SOCIAL DE JIU-JITSU E EDUCAÇÃO</span>
-    <h1 class="hero-titulo">É TEMPO DE <span class="contorno">AVANÇAR</span></h1>
-    <p class="hero-sub">Ensinamos jiu-jitsu e damos reforço escolar para crianças e adolescentes que precisam de um caminho. Disciplina no tatame, apoio na sala de aula — um golpe de mestre na vida de cada aluno.</p>
-    <div class="hero-acoes">
-      <a href="#visita" class="btn btn-primario">Agendar visita ao CT</a>
-      <a href="#doar" class="btn btn-contorno">Quero apoiar a ONG</a>
+ 
+<!-- HERO — o vídeo é "pilotado" pelo scroll: a barra .hero-scrub define quanto
+     de rolagem controla o vídeo; dentro dela, .hero fica grudada (sticky) na tela
+     enquanto o JS avança video.currentTime conforme a posição da rolagem. -->
+<div class="hero-scrub" id="heroScrub">
+  <section class="hero">
+    <video class="hero-video" id="heroVideo" muted playsinline preload="auto" poster="assets/logo-original-upscaled.png">
+      <source src="assets/hero-bg.webm" type="video/webm">
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-camada"></div>
+    <div class="container hero-conteudo">
+      <span class="olho">PROJETO SOCIAL DE JIU-JITSU E EDUCAÇÃO</span>
+      <h1 class="hero-titulo">É TEMPO DE <span class="contorno">AVANÇAR</span></h1>
+      <p class="hero-sub">Ensinamos jiu-jitsu e damos reforço escolar para crianças e adolescentes que precisam de um caminho. Disciplina no tatame, apoio na sala de aula — um golpe de mestre na vida de cada aluno.</p>
+      <div class="hero-acoes">
+        <a href="#visita" class="btn btn-primario">Agendar visita ao CT</a>
+        <a href="#doar" class="btn btn-contorno">Quero apoiar a ONG</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-rolar">ROLE PARA CONHECER</div>
-</section>
-
+    <div class="hero-rolar">ROLE PARA CONHECER</div>
+  </section>
+</div>
+ 
 <!-- SOBRE -->
 <section class="secao" id="sobre">
   <div class="container grade-sobre">
@@ -90,21 +94,46 @@
     </div>
   </div>
 </section>
-
+ 
 <div class="corte"></div>
-
-<!-- NÚMEROS -->
-<section class="secao-cinza" style="padding:64px 0;">
-  <div class="container grade-numeros">
-    <div class="numero"><strong>180+</strong><span>ALUNOS ATIVOS</span></div>
-    <div class="numero"><strong>24</strong><span>FAIXAS FORMADAS EM 2026</span></div>
-    <div class="numero"><strong>6</strong><span>PROFESSORES E EDUCADORES</span></div>
-    <div class="numero"><strong>12</strong><span>ANOS DE HISTÓRIA</span></div>
+ 
+<!-- NÚMEROS — trilha de conquistas, referência direta à jornada de faixas do jiu-jitsu -->
+<section class="secao-cinza secao-trilha">
+  <div class="container">
+    <div class="trilha-topo">
+      <span class="olho">NOSSA JORNADA ATÉ AQUI</span>
+      <h3 style="color:var(--branco-puro); font-family:var(--fonte-corpo); font-weight:800; text-transform:none; font-size:1.3rem; margin-top:8px;">Cada número aqui é um degrau — como uma graduação no tatame</h3>
+    </div>
+    <div class="trilha-numeros">
+      <svg class="trilha-linha" viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 40 200 L 320 150 L 620 90 L 950 30" fill="none" stroke="rgba(244,247,249,.22)" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round"/>
+      </svg>
+      <div class="marco marco-1">
+        <span class="marco-ponto" style="background:#F4F7F9;"></span>
+        <strong>180+</strong>
+        <span class="marco-legenda">ALUNOS ATIVOS</span>
+      </div>
+      <div class="marco marco-2">
+        <span class="marco-ponto" style="background:var(--faixa-dourada);"></span>
+        <strong>24</strong>
+        <span class="marco-legenda">FAIXAS FORMADAS EM 2026</span>
+      </div>
+      <div class="marco marco-3">
+        <span class="marco-ponto" style="background:var(--azul-eletrico);"></span>
+        <strong>6</strong>
+        <span class="marco-legenda">PROFESSORES E EDUCADORES</span>
+      </div>
+      <div class="marco marco-4">
+        <span class="marco-bandeira">🏁</span>
+        <strong>12</strong>
+        <span class="marco-legenda">ANOS DE HISTÓRIA</span>
+      </div>
+    </div>
   </div>
 </section>
-
+ 
 <div class="corte corte-inv"></div>
-
+ 
 <!-- AULAS -->
 <section class="secao" id="aulas">
   <div class="container">
@@ -137,7 +166,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- VISITA -->
 <section class="secao secao-cinza" id="visita">
   <div class="container">
@@ -192,7 +221,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- DOAÇÃO -->
 <section class="secao" id="doar">
   <div class="container grade-doacao">
@@ -225,7 +254,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- APOIADORES -->
 <section class="secao secao-cinza" id="apoiadores">
   <div class="container">
@@ -239,7 +268,7 @@
     <div class="carrossel-trilho" id="trilhoApoiadores"></div>
   </div>
 </section>
-
+ 
 <!-- ACESSO ADMINISTRATIVO -->
 <section class="faixa-admin">
   <div class="container">
@@ -250,7 +279,7 @@
     <a href="admin/login.html" class="btn btn-contorno">Acessar painel →</a>
   </div>
 </section>
-
+ 
 <!-- RODAPÉ -->
 <footer class="rodape">
   <div class="container">
@@ -289,7 +318,8 @@
     </div>
   </div>
 </footer>
-
+ 
 <script src="js/main.js"></script>
 </body>
 </html>
+ 
