@@ -1,5 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  /* ---------- Revelação ao rolar: elementos entram das laterais e se
+     acomodam no lugar conforme entram na tela ---------- */
+  if ('IntersectionObserver' in window) {
+    document.body.classList.add('pronto-revelar');
+
+    const observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('ativo');
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (elemento) {
+      observador.observe(elemento);
+    });
+  }
+
   /* ---------- Hero: vídeo controlado pelo scroll (com suavização) ---------- */
   const heroScrub = document.getElementById('heroScrub');
   const heroVideo = document.getElementById('heroVideo');
