@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Administrativo — Tempo de Avançar</title>
+<link rel="icon" type="image/png" href="../assets/logo-round.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin">
+
+<div class="painel">
+  <aside class="lateral" id="lateral">
+    <div class="marca">
+      <img src="../assets/logo-round.png" alt="Tempo de Avançar">
+      <span>PAINEL</span>
+    </div>
+    <ul class="menu-lateral">
+      <li><button data-secao="visao-geral" class="ativo">📊 Visão geral</button></li>
+      <li><button data-secao="presenca">✅ Controle de presença</button></li>
+      <li><button data-secao="alunos">👤 Alunos</button></li>
+      <li><button data-secao="faixas">🥋 Monitoramento de faixas</button></li>
+      <li><button data-secao="financeiro" data-somente-admin>💰 Caixa financeiro</button></li>
+    </ul>
+    <div class="rodape-lateral">
+      <span class="usuario" id="nomeUsuario">—</span>
+      <span class="cargo" id="cargoUsuario">—</span>
+      <button id="btnSair">Sair</button>
+    </div>
+  </aside>
+
+  <main class="conteudo">
+
+    <!-- VISÃO GERAL -->
+    <section class="painel-secao ativa" id="secao-visao-geral">
+      <div class="topo-conteudo">
+        <div>
+          <h2>Visão geral</h2>
+          <p>Resumo rápido da ONG hoje.</p>
+        </div>
+      </div>
+      <div class="cartoes-resumo">
+        <div class="cartao-resumo"><span>Alunos ativos</span><strong>182</strong></div>
+        <div class="cartao-resumo"><span>Presença hoje</span><strong>91%</strong></div>
+        <div class="cartao-resumo"><span>Graduações este mês</span><strong>7</strong></div>
+        <div class="cartao-resumo"><span>Doações no mês</span><strong id="resumoDoacoes">—</strong></div>
+      </div>
+      <div class="painel-caixa">
+        <h3>Próximas turmas de hoje</h3>
+        <table>
+          <thead><tr><th>Horário</th><th>Turma</th><th>Professor</th><th>Alunos</th></tr></thead>
+          <tbody>
+            <tr><td>16:00</td><td>Jiu-Jitsu Infantil</td><td>Prof. Marcos</td><td>28</td></tr>
+            <tr><td>17:30</td><td>Reforço Escolar — Fundamental</td><td>Prof.ª Carla</td><td>19</td></tr>
+            <tr><td>19:00</td><td>Jiu-Jitsu Juvenil</td><td>Prof. Marcos</td><td>24</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PRESENÇA -->
+    <section class="painel-secao" id="secao-presenca">
+      <div class="topo-conteudo">
+        <div>
+          <h2>Controle de presença</h2>
+          <p>Marque a presença da turma de hoje.</p>
+        </div>
+      </div>
+      <div class="barra-acoes">
+        <select id="filtroTurma">
+          <option>Jiu-Jitsu Infantil — 16:00</option>
+          <option>Reforço Escolar — 17:30</option>
+          <option>Jiu-Jitsu Juvenil — 19:00</option>
+        </select>
+        <input type="date" id="dataPresenca">
+        <button class="btn-mini" id="btnSalvarPresenca">Salvar presença</button>
+      </div>
+      <table>
+        <thead><tr><th></th><th>Aluno</th><th>Faixa</th><th>Presença</th></tr></thead>
+        <tbody id="tabelaPresenca"></tbody>
+      </table>
+    </section>
+
+    <!-- ALUNOS -->
+    <section class="painel-secao" id="secao-alunos">
+      <div class="topo-conteudo">
+        <div>
+          <h2>Alunos</h2>
+          <p>Dados cadastrais e de responsáveis.</p>
+        </div>
+      </div>
+      <div class="barra-acoes">
+        <input type="text" id="buscaAluno" placeholder="Buscar aluno...">
+        <button class="btn-mini">+ Novo aluno</button>
+      </div>
+      <table>
+        <thead><tr><th>Nome</th><th>Idade</th><th>Turma</th><th>Responsável</th><th>Contato</th></tr></thead>
+        <tbody id="tabelaAlunos"></tbody>
+      </table>
+    </section>
+
+    <!-- FAIXAS -->
+    <section class="painel-secao" id="secao-faixas">
+      <div class="topo-conteudo">
+        <div>
+          <h2>Monitoramento de faixas</h2>
+          <p>Progressão de graus e faixas de cada aluno.</p>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>Aluno</th><th>Faixa atual</th><th>Graus</th><th>Desde</th><th>Próxima avaliação</th></tr></thead>
+        <tbody id="tabelaFaixas"></tbody>
+      </table>
+    </section>
+
+    <!-- FINANCEIRO (somente admin) -->
+    <section class="painel-secao" id="secao-financeiro">
+      <div id="conteudoFinanceiro">
+        <div class="topo-conteudo">
+          <div>
+            <h2>Caixa financeiro</h2>
+            <p>Visível apenas para administradores da ONG.</p>
+          </div>
+        </div>
+        <div class="cartoes-resumo">
+          <div class="cartao-resumo"><span>Entradas do mês</span><strong class="positivo">R$ 14.280</strong></div>
+          <div class="cartao-resumo"><span>Saídas do mês</span><strong class="negativo">R$ 8.940</strong></div>
+          <div class="cartao-resumo"><span>Saldo em caixa</span><strong>R$ 26.410</strong></div>
+          <div class="cartao-resumo"><span>Doadores recorrentes</span><strong>37</strong></div>
+        </div>
+        <div class="painel-caixa">
+          <h3>Últimas movimentações</h3>
+          <table>
+            <thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Valor</th></tr></thead>
+            <tbody id="tabelaFinanceiro"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="bloqueio-admin" id="bloqueioFinanceiro" style="display:none;">
+        <span style="font-size:2rem;">🔒</span>
+        <strong style="color:var(--branco-puro);">Acesso restrito</strong>
+        <p style="max-width:340px; margin:0;">O caixa financeiro é visível apenas para usuários com perfil de administrador da ONG.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/admin.js"></script>
+</body>
+</html>

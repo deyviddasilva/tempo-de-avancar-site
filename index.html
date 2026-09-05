@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tempo de Avançar — Golpe de Mestre | Jiu-Jitsu e Reforço Escolar</title>
+<meta name="description" content="ONG Tempo de Avançar (Golpe de Mestre): aulas gratuitas de jiu-jitsu e reforço escolar para crianças e adolescentes. Agende uma visita ao CT ou faça uma doação.">
+<link rel="icon" type="image/png" href="assets/logo-round.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="cabecalho" id="cabecalho">
+  <div class="marca">
+    <img src="assets/logo-round.png" alt="Logotipo Tempo de Avançar">
+    <div>
+      <span>TEMPO DE AVANÇAR</span>
+      <small>Golpe de Mestre</small>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav-desktop">
+      <li><a href="#sobre">A ONG</a></li>
+      <li><a href="#aulas">Aulas</a></li>
+      <li><a href="#visita">Visitar o CT</a></li>
+      <li><a href="#doar">Doar</a></li>
+      <li><a href="#apoiadores">Apoiadores</a></li>
+    </ul>
+  </nav>
+  <div style="display:flex; align-items:center; gap:14px;">
+    <a href="#doar" class="btn btn-doar" style="padding:11px 20px;">Doar agora</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<!-- MENU MOBILE -->
+<nav id="menuMobile" style="display:none; position:fixed; inset:0; z-index:99; background:rgba(10,12,16,.98); padding:120px 32px 32px;">
+  <ul style="list-style:none; padding:0; display:grid; gap:28px; font-family:var(--fonte-display); font-size:2rem;">
+    <li><a href="#sobre">A ONG</a></li>
+    <li><a href="#aulas">Aulas</a></li>
+    <li><a href="#visita">Visitar o CT</a></li>
+    <li><a href="#doar">Doar</a></li>
+    <li><a href="#apoiadores">Apoiadores</a></li>
+    <li><a href="admin/login.html" style="color:var(--azul-claro);">Área do professor</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/logo-original-upscaled.png">
+    <source src="assets/hero-bg.webm" type="video/webm">
+    <source src="assets/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-camada"></div>
+  <div class="container hero-conteudo">
+    <span class="olho">PROJETO SOCIAL DE JIU-JITSU E EDUCAÇÃO</span>
+    <h1 class="hero-titulo">É TEMPO DE <span class="contorno">AVANÇAR</span></h1>
+    <p class="hero-sub">Ensinamos jiu-jitsu e damos reforço escolar para crianças e adolescentes que precisam de um caminho. Disciplina no tatame, apoio na sala de aula — um golpe de mestre na vida de cada aluno.</p>
+    <div class="hero-acoes">
+      <a href="#visita" class="btn btn-primario">Agendar visita ao CT</a>
+      <a href="#doar" class="btn btn-contorno">Quero apoiar a ONG</a>
+    </div>
+  </div>
+  <div class="hero-rolar">ROLE PARA CONHECER</div>
+</section>
+
+<!-- SOBRE -->
+<section class="secao" id="sobre">
+  <div class="container grade-sobre">
+    <div class="sobre-imagem">
+      <img src="assets/logo-original-upscaled.png" alt="Emblema da ONG Tempo de Avançar, faixa preta com detalhe vermelho ao centro, cercada por figuras coloridas representando a comunidade">
+      <div class="selo-flutuante">
+        <strong>+12</strong>
+        <span>ANOS FORMANDO CAMPEÕES DENTRO E FORA DO TATAME</span>
+      </div>
+    </div>
+    <div class="sobre-texto">
+      <span class="olho">NOSSA HISTÓRIA</span>
+      <h2 style="margin-top:14px;">Do tatame para a vida</h2>
+      <p>A Tempo de Avançar nasceu da vontade de um grupo de mestres de jiu-jitsu de oferecer, além da luta, um caminho. Sabemos que o esporte é caro e que nem toda criança tem acesso a uma academia — por isso levamos o tatame até quem mais precisa.</p>
+      <p>Hoje unimos duas frentes: as aulas de jiu-jitsu, que ensinam disciplina, respeito e autocontrole; e o reforço escolar, que garante que cada aluno continue evoluindo também na escola. Acreditamos que corpo e mente avançam juntos.</p>
+      <ul class="lista-valores">
+        <li>Aulas 100% gratuitas para a comunidade</li>
+        <li>Acompanhamento pedagógico e escolar constante</li>
+        <li>Professores faixas-pretas e educadores voluntários</li>
+        <li>Transparência total no uso das doações</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="corte"></div>
+
+<!-- NÚMEROS -->
+<section class="secao-cinza" style="padding:64px 0;">
+  <div class="container grade-numeros">
+    <div class="numero"><strong>180+</strong><span>ALUNOS ATIVOS</span></div>
+    <div class="numero"><strong>24</strong><span>FAIXAS FORMADAS EM 2026</span></div>
+    <div class="numero"><strong>6</strong><span>PROFESSORES E EDUCADORES</span></div>
+    <div class="numero"><strong>12</strong><span>ANOS DE HISTÓRIA</span></div>
+  </div>
+</section>
+
+<div class="corte corte-inv"></div>
+
+<!-- AULAS -->
+<section class="secao" id="aulas">
+  <div class="container">
+    <div class="cabecalho-secao">
+      <span class="olho">O QUE ENSINAMOS</span>
+      <h2>Duas aulas, um único propósito</h2>
+      <p>Cada aluno da Tempo de Avançar participa das duas frentes do projeto — porque disciplina no tatame só faz sentido se caminhar junto com a educação.</p>
+    </div>
+    <div class="grade-aulas">
+      <article class="cartao-aula">
+        <span class="num">01</span>
+        <h3>Jiu-Jitsu</h3>
+        <p>Turmas divididas por idade e faixa, com graduação acompanhada e participação em competições regionais. Ensinamos a arte suave como ferramenta de disciplina, respeito e autoconfiança.</p>
+        <div class="tag-linha">
+          <span class="tag">Infantil 5–12 anos</span>
+          <span class="tag">Juvenil 13–17 anos</span>
+          <span class="tag">3x por semana</span>
+        </div>
+      </article>
+      <article class="cartao-aula">
+        <span class="num">02</span>
+        <h3>Reforço escolar</h3>
+        <p>Apoio em português e matemática, acompanhamento de boletim e rotina de estudos, feito por educadores voluntários. Frequência nas aulas é pré-requisito para continuar no jiu-jitsu.</p>
+        <div class="tag-linha">
+          <span class="tag">Ensino fundamental</span>
+          <span class="tag">Turmas reduzidas</span>
+          <span class="tag">2x por semana</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VISITA -->
+<section class="secao secao-cinza" id="visita">
+  <div class="container">
+    <div class="painel-visita">
+      <div>
+        <span class="olho" style="color:var(--azul-claro);">CONHEÇA DE PERTO</span>
+        <h2 style="margin-top:14px;">Agende uma visita ao nosso CT</h2>
+        <p style="margin-top:18px; color:rgba(244,247,249,.75);">Quer conhecer o espaço, ver uma aula acontecendo e entender como a ONG funciona por dentro? Preencha o formulário e nossa equipe combina o melhor dia com você.</p>
+        <ul class="lista-valores" style="margin-top:30px;">
+          <li>Sem compromisso, apenas para conhecer</li>
+          <li>Aberto a famílias, apoiadores e voluntários</li>
+          <li>Resposta em até 2 dias úteis</li>
+        </ul>
+      </div>
+      <form class="formulario" id="formVisita">
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="campo">
+            <label for="telefone">WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="linha-dupla">
+          <div class="campo">
+            <label for="interesse">Tenho interesse em</label>
+            <select id="interesse" name="interesse">
+              <option>Matricular meu filho(a)</option>
+              <option>Ser voluntário(a)</option>
+              <option>Conhecer para apoiar/patrocinar</option>
+              <option>Outro motivo</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="data">Melhor data</label>
+            <input type="date" id="data" name="data">
+          </div>
+        </div>
+        <div class="campo">
+          <label for="mensagem">Mensagem (opcional)</label>
+          <textarea id="mensagem" name="mensagem" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primario" style="margin-top:6px;">Solicitar visita</button>
+        <div class="confirmacao" id="confirmacaoVisita">✓ Recebemos seu pedido! Em breve entraremos em contato pelo WhatsApp informado.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- DOAÇÃO -->
+<section class="secao" id="doar">
+  <div class="container grade-doacao">
+    <div class="caixa-pix">
+      <span style="font-weight:800; font-size:.78rem; letter-spacing:.06em; color:var(--faixa-vermelha);">DOAÇÃO VIA PIX</span>
+      <div class="qrcode">
+        <img id="imgQrCode" src="" alt="QR Code Pix para doação">
+      </div>
+      <div class="doacao-opcoes">
+        <button class="chip-valor" data-valor="20">R$ 20</button>
+        <button class="chip-valor selecionado" data-valor="50">R$ 50</button>
+        <button class="chip-valor" data-valor="100">R$ 100</button>
+        <button class="chip-valor" data-valor="200">R$ 200</button>
+      </div>
+      <div class="chave-pix">
+        <span id="chavePixTexto">doacoes@tempodeavancar.org.br</span>
+        <button id="btnCopiarPix" type="button">COPIAR</button>
+      </div>
+    </div>
+    <div class="doacao-texto">
+      <span class="olho">SUA AJUDA VIRA TATAME, QUIMONO E MERENDA</span>
+      <h2 style="margin-top:14px;">Um Pix pode mudar o rumo de uma criança</h2>
+      <p style="margin-top:18px;">Somos uma ONG e vivemos das doações da nossa comunidade. Cada real ajuda a manter quimonos, material escolar, transporte para competições e a estrutura do nosso Centro de Treinamento.</p>
+      <ul>
+        <li><span class="marcador">01</span><div><strong style="color:var(--branco-puro);">R$ 50</strong> mantêm um kit de material escolar por mês</div></li>
+        <li><span class="marcador">02</span><div><strong style="color:var(--branco-puro);">R$ 100</strong> cobrem um quimono novo para um aluno</div></li>
+        <li><span class="marcador">03</span><div><strong style="color:var(--branco-puro);">R$ 200</strong> ajudam a levar uma turma a um campeonato</div></li>
+      </ul>
+      <a href="#apoiadores" class="btn btn-contorno">Quero ser um apoiador fixo</a>
+    </div>
+  </div>
+</section>
+
+<!-- APOIADORES -->
+<section class="secao secao-cinza" id="apoiadores">
+  <div class="container">
+    <div class="cabecalho-secao">
+      <span class="olho">QUEM ACREDITA NESSA CAUSA</span>
+      <h2>Nossos apoiadores</h2>
+      <p>Empresas e pessoas que sustentam o projeto todos os meses. Sua marca pode estar aqui também.</p>
+    </div>
+  </div>
+  <div class="carrossel-wrap">
+    <div class="carrossel-trilho" id="trilhoApoiadores"></div>
+  </div>
+</section>
+
+<!-- ACESSO ADMINISTRATIVO -->
+<section class="faixa-admin">
+  <div class="container">
+    <div>
+      <h3>Área restrita — professores e administração</h3>
+      <p style="margin:0;">Controle de presença, monitoramento de faixas, dados dos alunos e caixa financeiro da ONG.</p>
+    </div>
+    <a href="admin/login.html" class="btn btn-contorno">Acessar painel →</a>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="rodape">
+  <div class="container">
+    <div class="grade-rodape">
+      <div>
+        <div class="rodape-marca">
+          <img src="assets/logo-round.png" alt="Logotipo Tempo de Avançar">
+          <div>
+            <strong style="font-family:var(--fonte-display); font-size:1.1rem;">TEMPO DE AVANÇAR</strong>
+            <div style="font-size:.78rem; color:var(--azul-claro);">Golpe de Mestre</div>
+          </div>
+        </div>
+        <p style="font-size:.88rem;">ONG dedicada ao ensino de jiu-jitsu e reforço escolar para crianças e adolescentes.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">A ONG</a></li>
+          <li><a href="#aulas">Aulas</a></li>
+          <li><a href="#visita">Visitar o CT</a></li>
+          <li><a href="#doar">Doar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li>contato@tempodeavancar.org.br</li>
+          <li>(11) 90000-0000</li>
+          <li>Rua do Tatame, 123 — São Paulo/SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="linha-base">
+      <span>© 2026 Tempo de Avançar — Golpe de Mestre. Todos os direitos reservados.</span>
+      <span>CNPJ 00.000.000/0001-00</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
