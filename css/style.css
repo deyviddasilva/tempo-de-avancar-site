@@ -260,38 +260,46 @@ p{max-width:62ch; color:rgba(244,247,249,0.78);}
 }
 .apoiador:hover{color:var(--branco-puro); border-color:var(--azul-eletrico);}
 
-/* ---------- Números / Trilha de conquistas ---------- */
+/* ---------- Números / Trilha de conquistas (montanha) ---------- */
 .secao-trilha{padding:90px 0 70px;}
-.trilha-topo{max-width:560px; margin-bottom:40px;}
-.trilha-numeros{
-  position:relative;
-  display:grid; grid-template-columns:repeat(4,1fr); align-items:end;
-  gap:18px; padding-top:40px; margin-top:20px;
-}
-.trilha-linha{position:absolute; inset:0; width:100%; height:100%; z-index:0;}
-.marco{
-  position:relative; z-index:1;
-  display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
-  background:var(--preto-suave); border:1px solid var(--linha); border-radius:10px;
-  padding:26px 16px 22px; transition:transform var(--transicao), border-color var(--transicao);
-}
-.marco:hover{transform:translateY(-6px); border-color:var(--azul-eletrico);}
-.marco-ponto{width:14px; height:14px; border-radius:50%; box-shadow:0 0 0 5px rgba(47,168,232,.12);}
-.marco-bandeira{font-size:1.3rem; line-height:1;}
-.marco strong{font-family:var(--fonte-display); font-size:clamp(2rem,3.4vw,2.8rem); color:var(--branco-puro); line-height:1;}
-.marco-legenda{font-size:.72rem; font-weight:700; letter-spacing:.03em; color:rgba(244,247,249,.55);}
-/* escadinha ascendente, como uma trilha de graduação */
-.marco-2{margin-bottom:34px;}
-.marco-3{margin-bottom:68px;}
-.marco-4{margin-bottom:102px; border-color:rgba(201,155,74,.4); background:linear-gradient(160deg, rgba(201,155,74,.1), var(--preto-suave) 60%);}
+.trilha-topo{max-width:560px; margin-bottom:20px;}
 
-@media (max-width:960px){
-  .trilha-numeros{grid-template-columns:1fr 1fr; row-gap:26px;}
-  .marco-2, .marco-3, .marco-4{margin-bottom:0;}
-  .trilha-linha{display:none;}
+.trilha-montanha{
+  position:relative; width:100%;
+  aspect-ratio:1200/420; min-height:340px;
+  border-radius:12px; overflow:hidden;
+  background:linear-gradient(180deg, #0D131C 0%, #0A0C10 100%);
+  border:1px solid var(--linha);
 }
-@media (max-width:600px){
-  .trilha-numeros{grid-template-columns:1fr;}
+.trilha-svg{position:absolute; inset:0; width:100%; height:100%; display:block;}
+
+.marco{
+  position:absolute; transform:translate(-50%,-50%);
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  gap:6px; z-index:2;
+}
+.marco-ponto{
+  width:12px; height:12px; border-radius:50%; border:2px solid var(--preto);
+  box-shadow:0 0 0 4px rgba(244,247,249,.1);
+}
+.marco-ponto-cume{background:var(--branco-puro); box-shadow:0 0 0 4px rgba(47,168,232,.35), 0 0 16px 4px rgba(47,168,232,.5);}
+.marco-texto{
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  transform:translateY(-30px);
+  background:rgba(10,12,16,.72); backdrop-filter:blur(3px);
+  border:1px solid rgba(244,247,249,.12); border-radius:8px;
+  padding:8px 14px; white-space:nowrap;
+}
+.marco-texto strong{font-family:var(--fonte-display); font-size:1.5rem; color:var(--branco-puro); line-height:1;}
+.marco-texto span{font-size:.62rem; font-weight:700; letter-spacing:.03em; color:rgba(244,247,249,.6);}
+.marco-cume .marco-texto{border-color:rgba(47,168,232,.4); background:rgba(13,42,71,.75);}
+
+@media (max-width:720px){
+  .trilha-montanha{aspect-ratio:auto; height:520px;}
+  .trilha-svg{object-fit:cover;}
+  .marco-texto{padding:6px 9px;}
+  .marco-texto strong{font-size:1.15rem;}
+  .marco-texto span{font-size:.56rem; white-space:normal; max-width:90px;}
 }
 
 /* ---------- Acesso administrativo ---------- */

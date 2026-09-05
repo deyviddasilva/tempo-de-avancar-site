@@ -53,7 +53,6 @@
 <div class="hero-scrub" id="heroScrub">
   <section class="hero">
     <video class="hero-video" id="heroVideo" muted playsinline preload="auto" poster="assets/logo-original-upscaled.png">
-      <source src="assets/hero-bg.webm" type="video/webm">
       <source src="assets/hero-bg.mp4" type="video/mp4">
     </video>
     <div class="hero-camada"></div>
@@ -97,36 +96,70 @@
 
 <div class="corte"></div>
 
-<!-- NÚMEROS — trilha de conquistas, referência direta à jornada de faixas do jiu-jitsu -->
+<!-- NÚMEROS — trilha de conquistas em forma de montanha, referência direta ao
+     infográfico de progressão de faixas (branca → preta) que vocês usam. -->
 <section class="secao-cinza secao-trilha">
   <div class="container">
     <div class="trilha-topo">
       <span class="olho">NOSSA JORNADA ATÉ AQUI</span>
       <h3 style="color:var(--branco-puro); font-family:var(--fonte-corpo); font-weight:800; text-transform:none; font-size:1.3rem; margin-top:8px;">Cada número aqui é um degrau — como uma graduação no tatame</h3>
     </div>
-    <div class="trilha-numeros">
-      <svg class="trilha-linha" viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M 40 200 L 320 150 L 620 90 L 950 30" fill="none" stroke="rgba(244,247,249,.22)" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round"/>
+
+    <div class="trilha-montanha">
+      <svg class="trilha-svg" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="ceuTrilha" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0D2A47" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#0A0C10" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="brilhoPico" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2FA8E8" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#2FA8E8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <rect x="0" y="0" width="1200" height="420" fill="url(#ceuTrilha)"/>
+
+        <!-- Cordilheira ao fundo -->
+        <polygon points="0,420 0,300 90,258 175,292 265,232 350,268 445,214 540,252 630,196 715,236 805,182 890,222 980,164 1065,206 1150,176 1200,196 1200,420"
+                 fill="#141821"/>
+        <!-- Cordilheira intermediária -->
+        <polygon points="0,420 0,340 110,300 210,330 300,268 385,300 470,246 555,276 640,214 720,244 800,172 878,206 955,140 1030,172 1090,110 1150,140 1200,120 1200,420"
+                 fill="#191d27" opacity=".9"/>
+        <!-- Cordilheira da frente, culminando no pico à direita -->
+        <polygon points="0,420 0,378 120,352 230,372 330,320 410,346 500,300 585,326 665,278 745,300 820,244 895,268 965,206 1030,232 1085,150 1130,186 1200,90 1200,420"
+                 fill="#1B2029"/>
+
+        <!-- Brilho suave no pico mais alto, marcando a conquista máxima -->
+        <circle cx="1085" cy="150" r="90" fill="url(#brilhoPico)"/>
+
+        <!-- Trilha pontilhada subindo até o topo -->
+        <path d="M 140 360 L 430 292 L 760 196 L 1085 82" fill="none"
+              stroke="rgba(244,247,249,.5)" stroke-width="2.5" stroke-dasharray="1 11" stroke-linecap="round"/>
+
+        <!-- Bandeira no cume -->
+        <g transform="translate(1085,82)">
+          <line x1="0" y1="0" x2="0" y2="-34" stroke="#F4F7F9" stroke-width="2"/>
+          <path d="M 0 -34 L 22 -27 L 0 -20 Z" fill="var(--faixa-vermelha)" fill-opacity="1"/>
+        </g>
       </svg>
-      <div class="marco marco-1">
+
+      <!-- Marcos: posicionados em % sobre a mesma grade da SVG (viewBox 1200x420) -->
+      <div class="marco" style="left:11.6%; top:85.7%;">
         <span class="marco-ponto" style="background:#F4F7F9;"></span>
-        <strong>180+</strong>
-        <span class="marco-legenda">ALUNOS ATIVOS</span>
+        <div class="marco-texto"><strong>180+</strong><span>ALUNOS ATIVOS</span></div>
       </div>
-      <div class="marco marco-2">
+      <div class="marco" style="left:35.8%; top:69.5%;">
         <span class="marco-ponto" style="background:var(--faixa-dourada);"></span>
-        <strong>24</strong>
-        <span class="marco-legenda">FAIXAS FORMADAS EM 2026</span>
+        <div class="marco-texto"><strong>24</strong><span>FAIXAS FORMADAS EM 2026</span></div>
       </div>
-      <div class="marco marco-3">
+      <div class="marco" style="left:63.3%; top:46.6%;">
         <span class="marco-ponto" style="background:var(--azul-eletrico);"></span>
-        <strong>6</strong>
-        <span class="marco-legenda">PROFESSORES E EDUCADORES</span>
+        <div class="marco-texto"><strong>6</strong><span>PROFESSORES E EDUCADORES</span></div>
       </div>
-      <div class="marco marco-4">
-        <span class="marco-bandeira">🏁</span>
-        <strong>12</strong>
-        <span class="marco-legenda">ANOS DE HISTÓRIA</span>
+      <div class="marco marco-cume" style="left:90.4%; top:19.5%;">
+        <span class="marco-ponto marco-ponto-cume"></span>
+        <div class="marco-texto"><strong>12</strong><span>ANOS DE HISTÓRIA</span></div>
       </div>
     </div>
   </div>

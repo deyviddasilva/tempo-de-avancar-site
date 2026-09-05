@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---------- Hero: vídeo controlado pelo scroll ---------- */
+  /* ---------- Hero: vídeo controlado pelo scroll (com suavização) ---------- */
   const heroScrub = document.getElementById('heroScrub');
   const heroVideo = document.getElementById('heroVideo');
   if (heroScrub && heroVideo) {
@@ -13,41 +13,44 @@ document.addEventListener('DOMContentLoaded', function () {
       heroVideo.play().catch(() => {});
     } else {
       let duracaoPronta = false;
-      let ultimoTempoAlvo = 0;
-      let animando = false;
+      let progressoAlvo = 0;   // 0→1, calculado a partir do scroll (pode "pular")
+      let progressoAtual = 0;  // 0→1, o que realmente vira currentTime (suavizado)
+      let precisaAtualizar = false;
 
       heroVideo.addEventListener('loadedmetadata', function () {
         duracaoPronta = true;
       });
 
-      function atualizarQuadroPeloScroll() {
-        animando = false;
-        if (!duracaoPronta || !heroVideo.duration) return;
-
+      function calcularProgressoPeloScroll() {
         const retangulo = heroScrub.getBoundingClientRect();
         const alturaRolavel = heroScrub.offsetHeight - window.innerHeight;
         if (alturaRolavel <= 0) return;
-
-        // progresso 0→1 conforme a faixa .hero-scrub passa pela tela
         let progresso = -retangulo.top / alturaRolavel;
-        progresso = Math.max(0, Math.min(1, progresso));
-
-        const tempoAlvo = progresso * heroVideo.duration;
-        if (Math.abs(tempoAlvo - ultimoTempoAlvo) > 0.01) {
-          heroVideo.currentTime = tempoAlvo;
-          ultimoTempoAlvo = tempoAlvo;
-        }
+        progressoAlvo = Math.max(0, Math.min(1, progresso));
+        precisaAtualizar = true;
       }
 
-      window.addEventListener('scroll', function () {
-        if (!animando) {
-          animando = true;
-          requestAnimationFrame(atualizarQuadroPeloScroll);
+      // Loop contínuo em requestAnimationFrame: em vez de saltar direto pro
+      // tempo calculado pelo scroll, caminha uma fração da distância a cada
+      // quadro (lerp). Isso evita o "engasgo" de ficar buscando keyframes
+      // toda hora e deixa o movimento do vídeo fluido mesmo em rolagens rápidas.
+      function suavizar() {
+        if (duracaoPronta && heroVideo.duration) {
+          const diferenca = progressoAlvo - progressoAtual;
+          if (Math.abs(diferenca) > 0.0008) {
+            progressoAtual += diferenca * 0.14; // fator de suavização
+            const tempoAlvo = progressoAtual * heroVideo.duration;
+            if (Math.abs(tempoAlvo - heroVideo.currentTime) > 0.02) {
+              heroVideo.currentTime = tempoAlvo;
+            }
+          }
         }
-      }, { passive: true });
+        requestAnimationFrame(suavizar);
+      }
 
-      // posição inicial (caso a página já carregue rolada, ex: voltando de outra aba)
-      window.addEventListener('load', atualizarQuadroPeloScroll);
+      window.addEventListener('scroll', calcularProgressoPeloScroll, { passive: true });
+      window.addEventListener('load', calcularProgressoPeloScroll);
+      requestAnimationFrame(suavizar);
     }
   }
 
