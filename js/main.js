@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Em telas pequenas mantemos o vídeo em loop normal (mais leve e mais previsível no touch)
       heroVideo.autoplay = true;
       heroVideo.loop = true;
-      heroVideo.play().catch(() => {});
+      heroVideo.play().catch(() => { });
     } else {
       let duracaoPronta = false;
       let progressoAlvo = 0;   // 0→1, calculado a partir do scroll (pode "pular")

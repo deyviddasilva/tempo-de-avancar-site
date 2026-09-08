@@ -7,29 +7,29 @@
 
 const CONTAS_DEMO = {
   professor: { senha: '1234', papel: 'professor', nome: 'Prof. Marcos Lima' },
-  admin:     { senha: '1234', papel: 'admin',      nome: 'Ana Beatriz (Admin)' }
+  admin: { senha: '1234', papel: 'admin', nome: 'Ana Beatriz (Admin)' }
 };
 
 const ALUNOS = [
-  { nome:'Kauã Silva',        idade:9,  turma:'Jiu-Jitsu Infantil', faixa:'Cinza',   graus:2, desde:'Mar/2025', proxima:'Nov/2026', responsavel:'Fernanda Silva', contato:'(11) 98888-1122' },
-  { nome:'Alice Ferreira',    idade:11, turma:'Jiu-Jitsu Infantil', faixa:'Amarela', graus:3, desde:'Jan/2024', proxima:'Dez/2026', responsavel:'Renato Ferreira', contato:'(11) 97777-2233' },
-  { nome:'Davi Santos',       idade:14, turma:'Jiu-Jitsu Juvenil',  faixa:'Laranja', graus:1, desde:'Jun/2025', proxima:'Fev/2027', responsavel:'Marta Santos',   contato:'(11) 96666-3344' },
-  { nome:'Sophia Costa',      idade:10, turma:'Jiu-Jitsu Infantil', faixa:'Cinza',   graus:4, desde:'Set/2024', proxima:'Out/2026', responsavel:'Diego Costa',    contato:'(11) 95555-4455' },
-  { nome:'Miguel Rocha',      idade:16, turma:'Jiu-Jitsu Juvenil',  faixa:'Verde',   graus:0, desde:'Ago/2026', proxima:'Ago/2027', responsavel:'Patrícia Rocha', contato:'(11) 94444-5566' },
-  { nome:'Helena Martins',    idade:8,  turma:'Reforço Escolar',    faixa:'Branca',  graus:1, desde:'Fev/2026', proxima:'—',        responsavel:'Juliana Martins',contato:'(11) 93333-6677' }
+  { nome: 'Kauã Silva', idade: 9, turma: 'Jiu-Jitsu Infantil', faixa: 'Cinza', graus: 2, desde: 'Mar/2025', proxima: 'Nov/2026', responsavel: 'Fernanda Silva', contato: '(11) 98888-1122' },
+  { nome: 'Alice Ferreira', idade: 11, turma: 'Jiu-Jitsu Infantil', faixa: 'Amarela', graus: 3, desde: 'Jan/2024', proxima: 'Dez/2026', responsavel: 'Renato Ferreira', contato: '(11) 97777-2233' },
+  { nome: 'Davi Santos', idade: 14, turma: 'Jiu-Jitsu Juvenil', faixa: 'Laranja', graus: 1, desde: 'Jun/2025', proxima: 'Fev/2027', responsavel: 'Marta Santos', contato: '(11) 96666-3344' },
+  { nome: 'Sophia Costa', idade: 10, turma: 'Jiu-Jitsu Infantil', faixa: 'Cinza', graus: 4, desde: 'Set/2024', proxima: 'Out/2026', responsavel: 'Diego Costa', contato: '(11) 95555-4455' },
+  { nome: 'Miguel Rocha', idade: 16, turma: 'Jiu-Jitsu Juvenil', faixa: 'Verde', graus: 0, desde: 'Ago/2026', proxima: 'Ago/2027', responsavel: 'Patrícia Rocha', contato: '(11) 94444-5566' },
+  { nome: 'Helena Martins', idade: 8, turma: 'Reforço Escolar', faixa: 'Branca', graus: 1, desde: 'Fev/2026', proxima: '—', responsavel: 'Juliana Martins', contato: '(11) 93333-6677' }
 ];
 
 const FINANCEIRO = [
-  { data:'02/09/2026', descricao:'Doação Pix — Instituto Avançar', categoria:'Doação',   tipo:'entrada', valor:1200 },
-  { data:'01/09/2026', descricao:'Compra de quimonos (12 un.)',    categoria:'Material',  tipo:'saida',   valor:1860 },
-  { data:'30/08/2026', descricao:'Doação Pix — pessoa física',     categoria:'Doação',    tipo:'entrada', valor:150 },
-  { data:'28/08/2026', descricao:'Aluguel do espaço',              categoria:'Estrutura', tipo:'saida',   valor:2200 },
-  { data:'25/08/2026', descricao:'Doação Konbat Sports',           categoria:'Patrocínio',tipo:'entrada', valor:3000 }
+  { data: '02/09/2026', descricao: 'Doação Pix — Instituto Avançar', categoria: 'Doação', tipo: 'entrada', valor: 1200 },
+  { data: '01/09/2026', descricao: 'Compra de quimonos (12 un.)', categoria: 'Material', tipo: 'saida', valor: 1860 },
+  { data: '30/08/2026', descricao: 'Doação Pix — pessoa física', categoria: 'Doação', tipo: 'entrada', valor: 150 },
+  { data: '28/08/2026', descricao: 'Aluguel do espaço', categoria: 'Estrutura', tipo: 'saida', valor: 2200 },
+  { data: '25/08/2026', descricao: 'Doação Konbat Sports', categoria: 'Patrocínio', tipo: 'entrada', valor: 3000 }
 ];
 
 /* ---------- Formatação ---------- */
-function formatarMoeda(v){ return v.toLocaleString('pt-BR', { style:'currency', currency:'BRL' }); }
-const CORES_FAIXA = { 'Branca':'#F4F7F9', 'Cinza':'#8B8F97', 'Amarela':'#E8C547', 'Laranja':'#E3872B', 'Verde':'#3FAE58' };
+function formatarMoeda(v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+const CORES_FAIXA = { 'Branca': '#F4F7F9', 'Cinza': '#8B8F97', 'Amarela': '#E8C547', 'Laranja': '#E3872B', 'Verde': '#3FAE58' };
 
 /* ---------- LOGIN (páginas admin/login.html) ---------- */
 const formLogin = document.getElementById('formLogin');
@@ -161,7 +161,7 @@ if (painelLateral) {
           ${f.tipo === 'entrada' ? '+' : '-'} ${formatarMoeda(f.valor)}
         </td>
       </tr>`).join('');
-      const totalDoacoes = FINANCEIRO.filter(f => f.categoria === 'Doação' || f.categoria === 'Patrocínio').reduce((s,f) => s+f.valor, 0);
+      const totalDoacoes = FINANCEIRO.filter(f => f.categoria === 'Doação' || f.categoria === 'Patrocínio').reduce((s, f) => s + f.valor, 0);
       const resumo = document.getElementById('resumoDoacoes');
       if (resumo) resumo.textContent = formatarMoeda(totalDoacoes);
     }

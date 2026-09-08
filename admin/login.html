@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acesso ao Painel — Tempo de Avançar</title>
-<link rel="icon" type="image/png" href="../assets/logo-round.png">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/admin.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso ao Painel — Tempo de Avançar</title>
+  <link rel="icon" type="image/png" href="../assets/logo-round.png">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
 </head>
+
 <body class="admin">
-<div class="tela-login">
-  <div class="cartao-login">
-    <img src="../assets/logo-round.png" alt="Tempo de Avançar">
-    <h1>Área restrita</h1>
-    <div class="sub">Acesso de professores e administração da ONG</div>
-    <form id="formLogin">
-      <div class="campo">
-        <label for="usuario">Usuário</label>
-        <input type="text" id="usuario" required autocomplete="username">
+  <div class="tela-login">
+    <div class="cartao-login">
+      <img src="../assets/logo-round.png" alt="Tempo de Avançar">
+      <h1>Área restrita</h1>
+      <div class="sub">Acesso de professores e administração da ONG</div>
+      <form id="formLogin">
+        <div class="campo">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" required autocomplete="username">
+        </div>
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" required autocomplete="current-password">
+        </div>
+        <div class="aviso-erro" id="avisoErro">Usuário ou senha inválidos.</div>
+        <button type="submit" class="btn btn-primario" style="width:100%; margin-top:6px;">Entrar</button>
+      </form>
+      <div class="contas-teste">
+        Demonstração — Professor: <strong>professor / 1234</strong><br>
+        Demonstração — Administrador: <strong>admin / 1234</strong>
       </div>
-      <div class="campo">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" required autocomplete="current-password">
-      </div>
-      <div class="aviso-erro" id="avisoErro">Usuário ou senha inválidos.</div>
-      <button type="submit" class="btn btn-primario" style="width:100%; margin-top:6px;">Entrar</button>
-    </form>
-    <div class="contas-teste">
-      Demonstração — Professor: <strong>professor / 1234</strong><br>
-      Demonstração — Administrador: <strong>admin / 1234</strong>
+      <div style="margin-top:22px;"><a href="../index.html" style="font-size:.82rem; color:var(--azul-claro);">← Voltar
+          ao site</a></div>
     </div>
-    <div style="margin-top:22px;"><a href="../index.html" style="font-size:.82rem; color:var(--azul-claro);">← Voltar ao site</a></div>
   </div>
-</div>
-<script src="../js/admin.js"></script>
+  <script src="../js/admin.js"></script>
 </body>
+
 </html>
