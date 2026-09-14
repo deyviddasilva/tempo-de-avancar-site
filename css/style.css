@@ -804,9 +804,6 @@ p {
   animation: deslizar 28s linear infinite;
 }
 
-.carrossel-wrap:hover .carrossel-trilho {
-  animation-play-state: paused;
-}
 
 @keyframes deslizar {
   from {
@@ -834,10 +831,6 @@ p {
   transition: var(--transicao);
 }
 
-.apoiador:hover {
-  color: var(--branco-puro);
-  border-color: var(--azul-eletrico);
-}
 
 /* ---------- Números — faixa segmentada com cortes diagonais ----------
    Mesma linguagem do corte diagonal usado entre as seções do site
